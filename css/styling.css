@@ -1,0 +1,228 @@
+html{
+    background: radial-gradient(#e8edf3,gray);
+    background: -webkit-radial-gradient(#e8edf3,gray);
+    background: -moz-radial-gradient(#e8edf3,gray);
+    background: -o-radial-gradient(#e8edf3,gray);
+}
+#container {
+    height: 450px;
+    width: 600px;
+    border: 1px solid;
+    margin: 180px auto;
+    background-color: #98dafc;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 10px gray;
+    -webkit-box-shadow: 4px 4px 10px 10px gray;
+    -moz-box-shadow: 4px 4px 10px 10px gray;
+/*    box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];*/
+}
+
+
+#questionDisplay {
+/*    border: 1px solid;*/
+/*
+    height: 100px;
+    width: 400px;
+*/
+    height: 35%;
+    width: 80%;
+    
+    margin: 35px auto;
+    
+    box-shadow: 0px 4px #bba225;
+    -webkit-box-shadow: 0px 4px #bba225;
+    -moz-box-shadow: 0px 4px #bba225;
+    background: #daad86;
+    
+    font-size: 5em;
+    text-align: center;
+    color: white;
+    font-style: italic;
+    
+    
+    
+    
+    
+    
+}
+
+
+#notificationbox {
+/*    border: 1px solid;*/
+    width: 80%;
+    margin: 20px auto;
+    height: 10%;
+    box-shadow: 0px 4px gray;
+    -webkit-box-shadow: 0px 4px gray;
+    -moz-box-shadow: 0px 4px gray;
+    background: #b0aac2;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
+#choices {
+/*    border: 1px solid;*/
+    width: 80%;
+    height: 25%;
+    margin: 5px auto;
+}
+
+#score {
+    float: right;
+    padding: 5px;
+    background: #f1e06e;
+    box-shadow: 0px 3px #b9a20c;
+    -moz-box-shadow: 0px 3px #b9a20c;
+    -webkit-box-shadow: 0px 3px #b9a20c;
+}
+
+#correct {
+    position: absolute;
+    padding: 5px;
+    background: green;
+    margin: 0 auto;
+    left: 680px;
+    display: none;
+    
+}
+
+#wrong {
+    position: absolute;
+    padding: 5px;
+    background: red;
+    left: 680px;
+    display: none;
+}
+
+#gameover {
+
+    width: 550px;
+    height: 280px;
+    position: absolute;
+    margin: 90px 30px;
+    background: linear-gradient(to top, #bf510c,#f8b58b);
+    background: -webkit-linear-gradient(to top, #bf510c,#f8b58b);
+    background: -moz-linear-gradient(to top, #bf510c,#f8b58b);
+    background: -o-linear-gradient(to top, #bf510c,#f8b58b);
+/*    display: none;*/
+    z-index: 1;
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    text-transform: uppercase;
+    display: none;
+    
+}
+
+/*
+#reset {
+    left: 660px;
+    bottom: 10px;
+    
+    
+    
+}
+*/
+
+#counter {
+    position: relative;
+    float: right;
+    margin-top: 30px;
+    background: #50e67d;
+    font-size: 20px;
+    padding: 3px;
+    border: 1px solid green;
+    display: none;
+    
+   
+}
+
+#resetbutton {
+    font-size: 20px;
+    background: #adcfe0;
+    border-radius: 10px;
+    box-shadow: 0px 3px gray;
+    -webkit-box-shadow: 0px 3px gray;
+    -moz-box-shadow: 0px 3px gray;
+    position: relative;
+    margin-left: 245px;
+    margin-top: 30px;
+/*    display: inline;*/
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    -woz-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    -ms-transition: all 0.25s;
+}
+
+#resetbutton:hover{
+    background-color: #9C89F6;
+    color: white;
+    box-shadow: 0px 4px #6b54d3;
+    -webkit-box-shadow: 0px 4px #6b54d3;
+    -moz-box-shadow: 0px 4px #6b54d3;
+    
+}
+
+#resetbutton:active{
+    background-color: #9C89F6;
+    color: white;
+    -webkit-box-shadow: 0px 3px #6b54d3;
+    -moz-box-shadow: 0px 3px #6b54d3;
+    box-shadow: 0px 3px #6b54d3;
+    top: 3px;
+    
+}
+
+
+.box {
+    background: white;
+    width: 20%;
+    height: 80%;
+    box-shadow: 0 3px #c3c3bf;
+    -webkit-box-shadow: 0 3px #c3c3bf;
+    -moz-box-shadow: 0 3px #c3c3bf;
+    float: left;
+    margin-right: 32px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 3px;
+    line-height: 85px;
+    
+    
+    color: #b3b1a6;
+    font-size: 25px;
+    position: relative;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    -woz-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    -ms-transition: all 0.25s;
+    
+}
+#c4{
+    margin-right: 0px;
+}
+
+.box:hover{
+    background-color: #9C89F6;
+    color: white;
+    box-shadow: 0px 4px #6b54d3;
+    -moz-box-shadow: 0px 4px #6b54d3;
+    -webkit-box-shadow: 0px 4px #6b54d3;
+}
+
+.box:active{
+/*    background-color: #9C89F6;*/
+    color: white;
+    box-shadow: 0px 0px #6b54d3;
+    -moz-box-shadow: 0px 0px #6b54d3;
+    -webkit-box-shadow: 0px 0px #6b54d3;
+    top: 4px;
+}
+
+
+

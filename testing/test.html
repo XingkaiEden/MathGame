@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    
+    </head>
+
+    <body>
+    <script>
+        var array=[];
+        
+function numberInArray(arr,x){
+    
+    
+   for(i=0; i<arr.length;i++){
+       if(arr[i] == x)
+           return true;
+   }
+    return false;
+}
+        
+   function fillArr(){   
+       
+    while(array.length < 4){
+    var n = Math.floor(Math.random()*4+1);
+    if(!numberInArray(array,n)){
+        array.push(n);
+    }
+}
+
+   }
+        
+        fillArr();
+        
+    
+
+        
+        window.alert(numberInArray(array,5));
+        
+        </script>
+    
+    </body>
+
+</html>
