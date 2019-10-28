@@ -80,20 +80,19 @@ html{
 }
 
 #correct {
-    position: absolute;
+    float: left;
     padding: 5px;
     background: green;
-    margin: 0 auto;
-    left: 680px;
+    margin-left: 270px;
     display: none;
     
 }
 
 #wrong {
-    position: absolute;
+    float: left;
     padding: 5px;
     background: red;
-    left: 680px;
+    margin-left: 270px;
     display: none;
 }
 

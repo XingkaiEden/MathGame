@@ -6,30 +6,30 @@ var scope = 100;  //the scope of mutiplcation, for example: 100 means Multiplica
 //classes
 //game functions
 var stage = "waiting";
-    function changeStatus(){
-        if(stage == "playing")
-            stage = "waiting";
-        else
-            stage = "playing";
-    }
-    function gameIsPlaying(){
-        if(stage == "playing")
-            return true;
-        else
-            return false;
-    }
+function changeStatus() {
+    if (stage == "playing")
+        stage = "waiting";
+    else
+        stage = "playing";
+}
+function gameIsPlaying() {
+    if (stage == "playing")
+        return true;
+    else
+        return false;
+}
 
 
 
 //Score Box functions
 var scoreValue = 0
 var score = document.getElementById("scorevalue");
-    
-    function resetScore(){
-        score.innerHTML = scoreValue;
-    }
 
-function addScore(){
+function resetScore() {
+    score.innerHTML = scoreValue;
+}
+
+function addScore() {
     scoreValue += 1;
     score.innerHTML = scoreValue;
 }
@@ -40,72 +40,75 @@ function addScore(){
 var time = document.getElementById("time");
 var counter = document.getElementById("counter");
 
-    
-    function showCounter(){
-        counter.style.display = "initial";
+
+function showCounter() {
+    counter.style.display = "initial";
+    time.innerHTML = initialTime;
+    setInterval(function () {
+        if (initialTime <= 0) {
+            stage = "waiting"; //due to functions from outside does not work, I simply change value of stage here.
+            return (document.getElementById("gameover").innerHTML = "<p>Game Over!</p> <p>Your Score is " + scoreValue + "</p>") && (document.getElementById("gameover").style.display = "initial");
+        }
+        initialTime -= 1;
         time.innerHTML = initialTime;
-        setInterval(function(){if(initialTime <= 0){ stage = "waiting"; //due to functions from outside does not work, I simply change value of stage here.
-            return (document.getElementById("gameover").innerHTML =  "<p>Game Over!</p> <p>Your Score is "+ scoreValue + "</p>") && (document.getElementById("gameover").style.display = "initial");} 
-                               initialTime -= 1; 
-                               time.innerHTML = initialTime;
-                              },1000);
-    }
+    }, 1000);
+}
 
 
 //check a value is in array or not.
-function numberInArray(arr,x){
-    if(arr.length == 0)
-        arr.push(Math.floor(Math.random()*4+1));
-    
-   for(i=0; i<arr.length;i++){
-       if(arr[i] == x)
-           return true;
-   }
+function numberInArray(arr, x) {
+    if (arr.length == 0)
+        arr.push(Math.floor(Math.random() * 4 + 1));
+
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] == x)
+            return true;
+    }
     return false;
 }
 
 var array = [];
 //Generator functions
-function generateQA(){
-    
-    while(array.length < 4){
-    var n = Math.floor(Math.random()*4+1);
-    if(!numberInArray(array,n)){
-        array.push(n);
+function generateQA() {
+
+    while (array.length < 4) {
+        var n = Math.floor(Math.random() * 4 + 1);
+        if (!numberInArray(array, n)) {
+            array.push(n);
+        }
     }
-}
-    for(i=0; i<array.length-1; i++){
+    for (i = 0; i < array.length - 1; i++) {
         var indexValue = array[i];
-//        window.console.log(indexValue);
-        document.getElementById("c"+indexValue).innerHTML = fakeAnswer();
+        //        window.console.log(indexValue);
+        document.getElementById("c" + indexValue).innerHTML = fakeAnswer();
     }
-    
+
     questionAndTrueAnswer();
 }
-  var x,y;//global variable that we want to use later on.
+var x, y;//global variable that we want to use later on.
 
-    function questionAndTrueAnswer(){
-        
-        x=Math.floor(Math.random()*scope);
-        y=Math.floor(Math.random()*scope);
-        tureAnswer(x,y);
-        document.getElementById("questionDisplay").innerHTML = x+" X "+y;
-        
-    }
-    
-    function fakeAnswer(){
-        return Math.floor(Math.random()*scope)*Math.floor(Math.random()*scope);
-    }
-    function tureAnswer(x,y){
-        var indexValue = array[3];
-//        window.console.log(indexValue);
-        document.getElementById("c"+indexValue).innerHTML = x*y;
-    }
+function questionAndTrueAnswer() {
+
+    x = Math.floor(Math.random() * scope);
+    y = Math.floor(Math.random() * scope);
+    tureAnswer(x, y);
+    document.getElementById("questionDisplay").innerHTML = x + " X " + y;
+
+}
+
+function fakeAnswer() {
+    return Math.floor(Math.random() * scope) * Math.floor(Math.random() * scope);
+}
+function tureAnswer(x, y) {
+    var indexValue = array[3];
+    //        window.console.log(indexValue);
+    document.getElementById("c" + indexValue).innerHTML = x * y;
+}
 
 //check if answer is correct
-function answerCorrect(id){
+function answerCorrect(id) {
     var selectedAnswer = document.getElementById(id).innerHTML;
-    if (selectedAnswer == x*y)
+    if (selectedAnswer == x * y)
         return true;
     else
         return false;
@@ -114,21 +117,21 @@ function answerCorrect(id){
 
 //Button functions
 
-    
-    function resetButton(){
-        button.innerHTML = "Reset Game";
-    }
+
+function resetButton() {
+    button.innerHTML = "Reset Game";
+}
 
 
 //check if start button was clicked
 var button = document.getElementById("resetbutton");
 
-button.onclick=function(){
-    
+button.onclick = function () {
+
 
     if (gameIsPlaying())
         refreshPage();
-    else{
+    else {
         changeStatus();
         resetScore();
         showCounter();
@@ -140,7 +143,7 @@ button.onclick=function(){
 
 }
 
-function refreshPage(){
+function refreshPage() {
     document.location.reload(true);
 }
 
@@ -172,37 +175,39 @@ function refreshPage(){
 
 
 //checking answer
-function checkAnswer(id){
-    if(gameIsPlaying()){
+function checkAnswer(id) {
+    if (gameIsPlaying()) {
         var currentQuestion = document.getElementById("questionDisplay").innerHTML;
-        if(answerCorrect(id)){
+        if (answerCorrect(id)) {
             showCorrectBox();
             addScore();
             generateQA();
             array = [];
-        }else
+        } else
             showWrongBox();
-            
-        
+
+
     }
 }
 
 
 //classes for checking answer stage
 //correctbox functions
-function showCorrectBox(){
+function showCorrectBox() {
     document.getElementById("correct").style.display = "initial";
+    document.getElementById("wrong").style.display = "none";
     //we want this box disappear after 1 sec
-    setTimeout(function(){document.getElementById("correct").style.display = "none";}, 1000);
-    
+    setTimeout(function () { document.getElementById("correct").style.display = "none"; }, 1000);
+
 }
 
 
 //WrongBox functions
-function showWrongBox(){
+function showWrongBox() {
     document.getElementById("wrong").style.display = "initial";
+    document.getElementById("correct").style.display = "none";
     //we want same as proceeding
-    setTimeout(function(){document.getElementById("wrong").style.display = "none";}, 1000);
+    setTimeout(function () { document.getElementById("wrong").style.display = "none"; }, 1000);
 }
 
 
